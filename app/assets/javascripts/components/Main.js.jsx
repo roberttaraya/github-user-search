@@ -11,7 +11,7 @@ class Main extends React.Component {
   }
 
   render() {
-    console.log("main: ", this.state)
+    console.log(this.state.users)
     return (
       <div>
         <Header handleSetUsers={this.handleSetUsers} />

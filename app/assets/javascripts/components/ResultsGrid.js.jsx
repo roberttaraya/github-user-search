@@ -1,7 +1,9 @@
 const ResultsGrid = ({ users }) => {
   return (
-    <ul>
-      {users.map(user => (<li>{user.url}</li>))}
-    </ul>
+    <div className="grid-container">
+      {users.map(user => (
+        <GithubUser  key={user.id} user={user} />
+      ))}
+    </div>
   )
 }

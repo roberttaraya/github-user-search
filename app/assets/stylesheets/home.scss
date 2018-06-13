@@ -31,3 +31,16 @@ input {
 .header-title {
   margin: 0em 1em;
 }
+.grid-container {
+  padding: 20px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-column-gap: 10px;
+  grid-row-gap: 30px;
+}
+.grid-item {
+}
+img {
+  width: 40%;
+  height: 50%;
+}

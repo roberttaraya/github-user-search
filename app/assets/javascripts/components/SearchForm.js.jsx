@@ -22,8 +22,6 @@ class SearchForm extends React.Component {
       })
   }
   render() {
-    console.log("search form state: ", this.state)
-    console.log("search form props: ", this.props)
     return(
       <form className="flex-container flex-end flex-item" onSubmit={this.handleSubmit}>
         <input className="flex-end" type="text" value={this.state.username} onChange={this.handleChange} placeholder="Search for a user, e.g. roberttaraya" />

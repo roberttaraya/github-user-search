@@ -16,7 +16,6 @@ const Header = ({ handleSetUsers }) => {
         </div>
         <SearchForm setUsers={handleSetUsers} />
       </div>
-
     </header>
   )
 }
