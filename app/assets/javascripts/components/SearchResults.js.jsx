@@ -9,10 +9,7 @@ class SearchResults extends React.Component {
   render() {
     return(
       <div>
-        <h1>This is the SearchResults</h1>
-        <ul>
-          {this.props.users.map(user => (<li>{user.url}</li>))}
-        </ul>
+        <ResultsGrid users={this.props.users} />
       </div>
     )
   }
