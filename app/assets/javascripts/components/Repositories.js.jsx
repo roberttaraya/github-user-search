@@ -16,11 +16,14 @@ class Repositories extends React.Component {
 
   render() {
     return (
-      <div>
-        <p>List of Repositories</p>
+      <div className="repos-container">
+        <h1>List of Repositories</h1>
         {this.state.repos.map(repo => {
           return (
-            <div>{repo.name}</div>
+            <GithubRepo
+              key={repo.id}
+              repo={repo}
+            />
           )
         })}
       </div>

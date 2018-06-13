@@ -17,8 +17,8 @@ class Followers extends React.Component {
   render() {
     const { handleSetUser } = this.props;
     return (
-      <div>
-        <p>List of Followers</p>
+      <div className="followers-container">
+        <h1>List of Followers</h1>
         {this.state.followers.map(follower => {
           return (
             <GithubUser

@@ -7,7 +7,7 @@ class GithubUser extends React.Component {
 
   handleClickUser() {
     const { user, setUser } = this.props
-    console.log("setUser: ", setUser)
+
     fetch(`/github/users/${user.login}`)
       .then(response => response.json())
       .then(data => {

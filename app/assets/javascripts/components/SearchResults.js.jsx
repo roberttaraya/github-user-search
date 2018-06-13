@@ -1,9 +1,6 @@
 class SearchResults extends React.Component {
   constructor(props) {
     super(props)
-    this.state = {
-
-    }
   }
 
   isEmpty(obj) {
@@ -17,8 +14,7 @@ class SearchResults extends React.Component {
 
   render() {
     const { handleSetUser, user, users } = this.props;
-    console.log("user: ", user)
-    console.log("users: ", users)
+
     return(
       <div>
         {!this.isEmpty(user) && <UserProfile user={user} handleSetUser={handleSetUser} />}

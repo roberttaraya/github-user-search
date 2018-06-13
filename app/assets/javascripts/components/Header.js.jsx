@@ -11,7 +11,6 @@ const Header = ({ handleSetUsers }) => {
               </svg>
               <span className="title">GitHub User Search</span>
             </h1>
-
           </div>
         </div>
         <SearchForm setUsers={handleSetUsers} />
