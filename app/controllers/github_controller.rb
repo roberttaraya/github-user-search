@@ -1,6 +1,12 @@
 class GithubController < ApplicationController
   require "rest-client"
 
+  def search
+    github_response = RestClient.get("https://api.github.com/search/users?q=#{params[:username]}", :accept => :json)
+
+    render json: JSON.parse(github_response.body)["items"]
+  end
+
   def authorize
     redirect_to "https://github.com/login/oauth/authorize?client_id=#{ENV['GITHUB_CLIENT_ID']}"
   end

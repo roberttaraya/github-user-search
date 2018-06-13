@@ -5,4 +5,5 @@ Rails.application.routes.draw do
   get 'sessions/destroy'
   get 'github/authorize'
   get 'github/callback'
+  get 'github/search'
 end
