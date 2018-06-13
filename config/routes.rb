@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
-  get 'github/authorize'
-
-  get 'github/callback'
-
   root 'home#index'
+
+  get 'sessions/create'
+  get 'sessions/destroy'
+  get 'github/authorize'
+  get 'github/callback'
 end

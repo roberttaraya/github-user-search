@@ -15,7 +15,6 @@ class GithubController < ApplicationController
 
     github_response = RestClient.post("https://github.com/login/oauth/access_token", options, :accept => :json)
 
-    session[:access_token] = JSON.parse(github_response)['access_token']
-    redirect_to root_path
+    redirect_to controller: "sessions", action: "create", access_token: JSON.parse(github_response)['access_token']
   end
 end
