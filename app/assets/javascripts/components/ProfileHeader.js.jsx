@@ -1,15 +1,34 @@
-const ProfileHeader = ({ user }) => {
+const ProfileHeader = ({
+  avatar_url,
+  bio,
+  blog,
+  company,
+  followers,
+  following,
+  html_url,
+  location,
+  login,
+  name,
+  public_repos,
+}) => {
   return (
     <div className="profile-header-container">
-      <img className="img-lg profile-header-item-left" src={user.avatar_url} />
+      <img className="img-lg profile-header-item-left" src={avatar_url} />
       <div className=" profile-header-item-right">
         <ProfileSummary
-          user={user}
-          name={user.name}
-          html_url={user.html_url}
-          login={user.login}
+          bio={bio}
+          blog={blog}
+          company={company}
+          followers={followers}
+          following={following}
+          html_url={html_url}
+          location={location}
+          login={login}
+          name={name}
+          public_repos={public_repos}
         />
       </div>
     </div>
   )
 }
+

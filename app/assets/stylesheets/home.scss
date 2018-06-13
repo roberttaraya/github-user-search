@@ -60,6 +60,7 @@ input {
 .profile-header-container {
   display: flex;
   flex-direction: row;
+  padding-bottom: 20px;
 }
 .profile-header-item-left {
   margin-right: 15px;
@@ -72,9 +73,15 @@ input {
   font-size: 25px;
   font-weight: 500;
 }
-.summary h1, .summary p {
+.user-info h1, .user-info p {
   margin: 0;
 }
-.summary p {
+.user-info p {
   font-size: 20px;
+}
+.github-summary-data {
+
+}
+.github-summary-label {
+  font-weight: bold;
 }
