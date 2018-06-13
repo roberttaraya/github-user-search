@@ -15,6 +15,7 @@ class UserProfile extends React.Component {
       repos_url,
       public_repos,
     } = this.props.user;
+    const { handleSetUser, user } = this.props;
     return (
       <div className="profile-container">
         <ProfileHeader
@@ -33,7 +34,7 @@ class UserProfile extends React.Component {
         />
         <hr />
         <Repositories repos_url={repos_url}/>
-        <Followers followers_url={followers_url}/>
+        <Followers followers_url={followers_url} handleSetUser={handleSetUser} />
       </div>
     )
   }

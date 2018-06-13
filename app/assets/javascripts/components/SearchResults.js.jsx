@@ -16,13 +16,13 @@ class SearchResults extends React.Component {
   }
 
   render() {
-    const { user, users } = this.props;
+    const { handleSetUser, user, users } = this.props;
     console.log("user: ", user)
     console.log("users: ", users)
     return(
       <div>
-        {!this.isEmpty(user) && <UserProfile user={user} />}
-        {users.length !== 0 && <ResultsGrid users={users} handleSetUser={this.props.handleSetUser} />}
+        {!this.isEmpty(user) && <UserProfile user={user} handleSetUser={handleSetUser} />}
+        {users.length !== 0 && <ResultsGrid users={users} handleSetUser={handleSetUser} />}
       </div>
     )
   }

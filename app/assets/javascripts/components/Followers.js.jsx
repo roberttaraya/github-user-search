@@ -15,12 +15,17 @@ class Followers extends React.Component {
   }
 
   render() {
+    const { handleSetUser } = this.props;
     return (
       <div>
         <p>List of Followers</p>
         {this.state.followers.map(follower => {
           return (
-            <div>{follower.login}</div>
+            <GithubUser
+              key={follower.id}
+              user={follower}
+              setUser={handleSetUser}
+            />
           )
         })}
       </div>
