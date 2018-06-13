@@ -7,20 +7,23 @@ class GithubController < ApplicationController
     render json: JSON.parse(github_response.body)["items"]
   end
 
-  def authorize
-    redirect_to "https://github.com/login/oauth/authorize?client_id=#{ENV['GITHUB_CLIENT_ID']}"
-  end
+  private
 
-  def callback
-    github_code = params[:code]
+    def authorize
+      redirect_to "https://github.com/login/oauth/authorize?client_id=#{ENV['GITHUB_CLIENT_ID']}"
+    end
 
-    options = {}
-    options[:client_id] = ENV['GITHUB_CLIENT_ID']
-    options[:client_secret] = ENV['GITHUB_CLIENT_SECRET']
-    options[:code] = github_code
+    def callback
+      github_code = params[:code]
 
-    github_response = RestClient.post("https://github.com/login/oauth/access_token", options, :accept => :json)
+      options = {}
+      options[:client_id] = ENV['GITHUB_CLIENT_ID']
+      options[:client_secret] = ENV['GITHUB_CLIENT_SECRET']
+      options[:code] = github_code
 
-    redirect_to controller: "sessions", action: "create", access_token: JSON.parse(github_response)['access_token']
-  end
+      github_response = RestClient.post("https://github.com/login/oauth/access_token", options, :accept => :json)
+
+      redirect_to controller: "sessions", action: "create", access_token: JSON.parse(github_response)['access_token']
+    end
+
 end
