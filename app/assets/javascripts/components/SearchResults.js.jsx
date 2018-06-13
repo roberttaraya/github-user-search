@@ -6,10 +6,23 @@ class SearchResults extends React.Component {
     }
   }
 
+  isEmpty(obj) {
+    for(var prop in obj) {
+      if(obj.hasOwnProperty(prop))
+        return false;
+    }
+
+    return JSON.stringify(obj) === JSON.stringify({});
+  }
+
   render() {
+    const { user, users } = this.props;
+    console.log("user: ", user)
+    console.log("users: ", users)
     return(
       <div>
-        <ResultsGrid users={this.props.users} />
+        {!this.isEmpty(user) && <UserProfile user={user} />}
+        {users.length !== 0 && <ResultsGrid users={users} handleSetUser={this.props.handleSetUser} />}
       </div>
     )
   }

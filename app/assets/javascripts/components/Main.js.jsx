@@ -1,13 +1,27 @@
 class Main extends React.Component {
   constructor(props) {
     super(props)
-    this.state = { users: [] }
+    this.state = {
+      user: {},
+      users: []
+    }
 
+    this.handleSetUser = this.handleSetUser.bind(this)
     this.handleSetUsers = this.handleSetUsers.bind(this)
   }
 
   handleSetUsers(usersList) {
-    this.setState({ users: usersList})
+    this.setState({
+      users: usersList,
+      user: {}
+    })
+  }
+
+  handleSetUser(user) {
+    this.setState({
+      users: [],
+      user: user
+    })
   }
 
   render() {
@@ -15,7 +29,11 @@ class Main extends React.Component {
     return (
       <div>
         <Header handleSetUsers={this.handleSetUsers} />
-        <SearchResults users={this.state.users}/>
+        <SearchResults
+          user={this.state.user}
+          users={this.state.users}
+          handleSetUser={this.handleSetUser}
+        />
       </div>
     )
   }

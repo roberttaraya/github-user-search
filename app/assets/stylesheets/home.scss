@@ -38,9 +38,43 @@ input {
   grid-column-gap: 10px;
   grid-row-gap: 30px;
 }
-.grid-item {
+.img-sm {
+  display: block;
+  max-width:150px;
+  max-height:150px;
+  width: auto;
+  height: auto;
 }
-img {
-  width: 40%;
-  height: 50%;
+.img-lg {
+  display: block;
+  max-width:250px;
+  max-height:250px;
+  width: auto;
+  height: auto;
+}
+
+
+.profile-container {
+  padding: 20px;
+}
+.profile-header-container {
+  display: flex;
+  flex-direction: row;
+}
+.profile-header-item-left {
+  margin-right: 15px;
+}
+.profile-header-item-right {
+  padding-left: 15px;
+}
+.summary-username a {
+  text-decoration: none;
+  font-size: 25px;
+  font-weight: 500;
+}
+.summary h1, .summary p {
+  margin: 0;
+}
+.summary p {
+  font-size: 20px;
 }
