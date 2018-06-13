@@ -6,4 +6,5 @@ Rails.application.routes.draw do
   get 'github/authorize'
   get 'github/callback'
   get 'github/search'
+  get 'github/users/:username', to: 'github#show'
 end

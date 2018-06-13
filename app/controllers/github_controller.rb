@@ -7,6 +7,12 @@ class GithubController < ApplicationController
     render json: JSON.parse(github_response.body)["items"]
   end
 
+  def show
+    github_response = RestClient.get("https://api.github.com/users/#{params[:username]}?access_token=#{session[:access_token]}", :accept => :json)
+
+    render json: JSON.parse(github_response.body)
+  end
+
   def authorize
     redirect_to "https://github.com/login/oauth/authorize?client_id=#{ENV['GITHUB_CLIENT_ID']}"
   end
