@@ -1,4 +1,4 @@
-const Header = () => {
+const Header = ({ handleSetUsers }) => {
   return(
     <header>
       <div className="header flex-container">
@@ -14,7 +14,7 @@ const Header = () => {
 
           </div>
         </div>
-        <SearchForm />
+        <SearchForm setUsers={handleSetUsers} />
       </div>
 
     </header>
