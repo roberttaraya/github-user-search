@@ -1,4 +1,4 @@
-const ResultsGrid = ({ users, handleSetUser }) => {
+const ResultsGrid = ({ users, handleSetUser, handleFetchRepos, handleFetchFollowers }) => {
   return (
     <div className="grid-container">
       {users.map(user => (
@@ -6,6 +6,8 @@ const ResultsGrid = ({ users, handleSetUser }) => {
           key={user.id}
           user={user}
           setUser={handleSetUser}
+          fetchRepos={handleFetchRepos}
+          fetchFollowers={handleFetchFollowers}
         />
       ))}
     </div>

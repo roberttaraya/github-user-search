@@ -1,22 +1,29 @@
 class UserProfile extends React.Component {
+  constructor(props) {
+    super(props)
+  }
+
   render() {
     const {
       avatar_url,
       bio,
       blog,
       company,
-      followers,
-      followers_url,
       following,
       html_url,
       location,
       login,
       name,
-      repos_url,
       public_repos,
     } = this.props.user;
-    const { handleSetUser, user } = this.props;
-
+    const {
+      followersList,
+      handleFetchFollowers,
+      handleFetchRepos,
+      handleSetUser,
+      reposList,
+      user,
+    } = this.props;
     return (
       <div className="profile-container">
         <ProfileHeader
@@ -25,7 +32,7 @@ class UserProfile extends React.Component {
           blog={blog}
           className="item-header"
           company={company}
-          followers={followers}
+          followersCount={followersList.length}
           following={following}
           html_url={html_url}
           location={location}
@@ -35,10 +42,14 @@ class UserProfile extends React.Component {
         />
         <hr />
         <div className="flex-container">
-          <Repositories repos_url={repos_url} />
+          <Repositories
+            repos={reposList}
+          />
           <Followers
-            followers_url={followers_url}
+            followers={followersList}
             handleSetUser={handleSetUser}
+            handleFetchFollowers={handleFetchFollowers}
+            handleFetchRepos={handleFetchRepos}
           />
         </div>
       </div>

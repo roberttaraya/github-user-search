@@ -3,7 +3,7 @@ const ProfileHeader = ({
   bio,
   blog,
   company,
-  followers,
+  followersCount,
   following,
   html_url,
   location,
@@ -19,7 +19,7 @@ const ProfileHeader = ({
           bio={bio}
           blog={blog}
           company={company}
-          followers={followers}
+          followersCount={followersCount}
           following={following}
           html_url={html_url}
           location={location}

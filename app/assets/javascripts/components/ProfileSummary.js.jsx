@@ -2,7 +2,7 @@ const ProfileSummary = ({
   bio,
   blog,
   company,
-  followers,
+  followersCount,
   following,
   html_url,
   location,
@@ -20,7 +20,7 @@ const ProfileSummary = ({
         <a href={blog}>{blog}</a>
       </div>
       <div className="github-summary">
-        <p><span className="github-summary-label">Followers:</span> <span className="github-summary-data">{followers}</span></p>
+        <p><span className="github-summary-label">Followers:</span> <span className="github-summary-data">{followersCount}</span></p>
         <p><span className="github-summary-label">Following:</span> <span className="github-summary-data">{following}</span></p>
         <p><span className="github-summary-label">Repos:</span> <span className="github-summary-data">{public_repos}</span></p>
       </div>

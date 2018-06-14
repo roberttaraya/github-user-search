@@ -1,22 +1,30 @@
 class GithubUser extends React.Component {
   constructor(props) {
     super(props)
-
     this.handleClickUser = this.handleClickUser.bind(this)
+    this.fetchUser = this.handleFetchUser.bind(this)
+    this.setUser = this.props.setUser
+    this.fetchRepos = this.props.fetchRepos
+    this.fetchFollowers = this.props.fetchFollowers
   }
 
   handleClickUser() {
-    const { user, setUser } = this.props
+    this.fetchUser()
+    this.fetchRepos(this.props.user.login)
+    this.fetchFollowers(this.props.user.login)
+  }
 
-    fetch(`/github/users/${user.login}`)
+  handleFetchUser() {
+    fetch(`/github/users/${this.props.user.login}`)
       .then(response => response.json())
       .then(data => {
-        setUser(data)
+        this.setUser(data)
       })
   }
 
   render() {
     const { avatar_url, login } = this.props.user;
+
     return (
       <div
         className="grid-item"

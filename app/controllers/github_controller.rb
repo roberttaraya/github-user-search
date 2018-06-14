@@ -7,8 +7,20 @@ class GithubController < ApplicationController
     render json: JSON.parse(github_response.body)["items"]
   end
 
-  def show
+  def user
     github_response = RestClient.get("https://api.github.com/users/#{params[:username]}?access_token=#{session[:access_token]}", :accept => :json)
+
+    render json: JSON.parse(github_response.body)
+  end
+
+  def repos
+    github_response = RestClient.get("https://api.github.com/users/#{params[:username]}/repos?access_token=#{session[:access_token]}", :accept => :json)
+
+    render json: JSON.parse(github_response.body)
+  end
+
+  def followers
+    github_response = RestClient.get("https://api.github.com/users/#{params[:username]}/followers?access_token=#{session[:access_token]}", :accept => :json)
 
     render json: JSON.parse(github_response.body)
   end

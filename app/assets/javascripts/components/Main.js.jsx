@@ -5,9 +5,8 @@ class Main extends React.Component {
       user: {},
       users: []
     }
-
-    this.handleSetUser = this.handleSetUser.bind(this)
-    this.handleSetUsers = this.handleSetUsers.bind(this)
+    this.setUser = this.handleSetUser.bind(this)
+    this.setUsers = this.handleSetUsers.bind(this)
   }
 
   handleSetUsers(usersList) {
@@ -27,11 +26,11 @@ class Main extends React.Component {
   render() {
     return (
       <div>
-        <Header handleSetUsers={this.handleSetUsers} />
+        <Header handleSetUsers={this.setUsers} />
         <SearchResults
           user={this.state.user}
           users={this.state.users}
-          handleSetUser={this.handleSetUser}
+          handleSetUser={this.setUser}
         />
       </div>
     )
