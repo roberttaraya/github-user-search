@@ -5,6 +5,7 @@ class SearchForm extends React.Component {
 
     this.handleChange = this.handleChange.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
+    this.fetchUser = this.handleFetchUser.bind(this)
   }
 
   handleChange(e) {
@@ -13,7 +14,10 @@ class SearchForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
+    this.fetchUser()
+  }
 
+  handleFetchUser() {
     fetch(`/github/search?username=${this.state.username}`)
       .then(response => response.json())
       .then(data => {
@@ -21,10 +25,17 @@ class SearchForm extends React.Component {
         this.setState({ username: "" })
       })
   }
+
   render() {
     return(
       <form className="flex-container flex-end flex-item" onSubmit={this.handleSubmit}>
-        <input className="flex-end" type="text" value={this.state.username} onChange={this.handleChange} placeholder="Search for a user, e.g. roberttaraya" />
+        <input
+          className="flex-end"
+          onChange={this.handleChange}
+          placeholder="Search for a user, e.g. roberttaraya"
+          type="text"
+          value={this.state.username}
+        />
       </form>
     )
   }

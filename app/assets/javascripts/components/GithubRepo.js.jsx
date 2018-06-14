@@ -4,7 +4,14 @@ class GithubRepo extends React.Component {
   }
 
   render() {
-    const { name, description, language, stargazers_count, forks_count } = this.props.repo;
+    const {
+      description,
+      forks_count,
+      language,
+      name,
+      stargazers_count,
+    } = this.props.repo;
+
     return (
       <div>
         <h4>{name}</h4>

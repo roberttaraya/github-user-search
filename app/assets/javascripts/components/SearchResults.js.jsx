@@ -35,26 +35,31 @@ class SearchResults extends React.Component {
 
   render() {
     const { followersList, reposList } = this.state;
-    const { handleSetUser, user, users } = this.props;
+    const {
+      handleSetUser,
+      user,
+      users,
+    } = this.props;
+
     return (
       <div>
         {
           !this.isEmpty(user)
             &&  <UserProfile
-                  handleSetUser={handleSetUser}
-                  user={user}
-                  handleFetchRepos={this.fetchRepos}
-                  handleFetchFollowers={this.fetchFollowers}
                   followersList={followersList}
+                  handleFetchFollowers={this.fetchFollowers}
+                  handleFetchRepos={this.fetchRepos}
+                  handleSetUser={handleSetUser}
                   reposList={reposList}
+                  user={user}
                 />
         }
         {
           users.length !== 0
             &&  <ResultsGrid
-                  handleSetUser={handleSetUser}
-                  handleFetchRepos={this.fetchRepos}
                   handleFetchFollowers={this.fetchFollowers}
+                  handleFetchRepos={this.fetchRepos}
+                  handleSetUser={handleSetUser}
                   users={users}
                 />
         }

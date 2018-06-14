@@ -1,11 +1,11 @@
 class GithubUser extends React.Component {
   constructor(props) {
     super(props)
-    this.handleClickUser = this.handleClickUser.bind(this)
     this.fetchUser = this.handleFetchUser.bind(this)
-    this.setUser = this.props.setUser
-    this.fetchRepos = this.props.fetchRepos
+    this.handleClickUser = this.handleClickUser.bind(this)
     this.fetchFollowers = this.props.fetchFollowers
+    this.fetchRepos = this.props.fetchRepos
+    this.setUser = this.props.setUser
   }
 
   handleClickUser() {
@@ -26,13 +26,11 @@ class GithubUser extends React.Component {
     const { avatar_url, login } = this.props.user;
 
     return (
-      <div
-        className="grid-item"
-        onClick={this.handleClickUser}
-      >
-        <img className="img-sm" src={avatar_url} />
-        <h1>{login}</h1>
-      </div>
+      <GUser
+        handleClickUser={this.handleClickUser}
+        avatar_url={avatar_url}
+        login={login}
+      />
     )
   }
 }

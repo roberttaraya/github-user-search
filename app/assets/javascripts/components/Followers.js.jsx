@@ -4,18 +4,24 @@ class Followers extends React.Component {
   }
 
   render() {
-    const { handleSetUser, followers, handleFetchRepos, handleFetchFollowers } = this.props;
+    const {
+      followers,
+      handleFetchFollowers,
+      handleFetchRepos,
+      handleSetUser,
+    } = this.props;
+
     return (
       <div className="followers-container">
         <h1>List of Followers</h1>
         {followers.map(follower => {
           return (
             <GithubUser
-              key={follower.id}
-              user={follower}
-              setUser={handleSetUser}
-              fetchRepos={handleFetchRepos}
               fetchFollowers={handleFetchFollowers}
+              fetchRepos={handleFetchRepos}
+              key={follower.id}
+              setUser={handleSetUser}
+              user={follower}
             />
           )
         })}
